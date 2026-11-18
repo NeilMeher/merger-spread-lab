@@ -100,7 +100,7 @@ def main():
             band = f"{min(weights):.1%} to {max(weights):.1%}" if weights else "no feasible cells"
             print(f"  {phase}: {band} ({len(weights)}/9 feasible)")
     with (args.output/"weights.csv").open("w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=grid[0])
+        writer = csv.DictWriter(file, fieldnames=grid[0], lineterminator="\n")
         writer.writeheader()
         writer.writerows(grid)
 
